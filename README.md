@@ -1,4 +1,6 @@
 goc2p
 =====
 
-The examples of book 'Go concurrent programming practice'.
+Go Concurrency Programming Project.
+
+A example project for book 'Go Programming & Concurrency in Practice'.
