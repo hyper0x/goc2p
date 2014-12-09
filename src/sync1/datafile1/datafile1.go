@@ -92,7 +92,7 @@ func (df *myDataFile) Write(d Data) (wsn int64, err error) {
 		bytes = d
 	}
 	df.fmutex.Lock()
-	df.fmutex.Unlock()
+	defer df.fmutex.Unlock()
 	_, err = df.f.Write(bytes)
 	return
 }

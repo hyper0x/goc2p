@@ -22,5 +22,5 @@ func (psl *myPublicSuffixList) PublicSuffix(domain string) string {
 }
 
 func (psl *myPublicSuffixList) String() string {
-	return "Web crawler's' public suffix list (rev 1.0) power by 'code.google.com/p/go.net/publicsuffix'"
+	return "Web crawler - public suffix list (rev 1.0) power by 'code.google.com/p/go.net/publicsuffix'"
 }

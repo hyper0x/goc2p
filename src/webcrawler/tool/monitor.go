@@ -41,8 +41,7 @@ func Monitoring(
 	autoStop bool,
 	detailSummary bool,
 	record Record) <-chan uint64 {
-	// 调度器不能不可用！
-	if scheduler == nil {
+	if scheduler == nil { // 调度器不能不可用！
 		panic(errors.New("The scheduler is invalid!"))
 	}
 	// 防止过小的参数值对爬取流程的影响
