@@ -18,7 +18,7 @@ type Addr struct {
 
 type PersonHandler interface {
 	Batch(origs <-chan Person) <-chan Person
-	Handle(orig Person)
+	Handle(orig *Person)
 }
 
 type PersonHandlerImpl struct{}
@@ -27,7 +27,7 @@ func (handler PersonHandlerImpl) Batch(origs <-chan Person) <-chan Person {
 	dests := make(chan Person, 100)
 	go func() {
 		for p := range origs {
-			handler.Handle(p)
+			handler.Handle(&p)
 			dests <- p
 		}
 		fmt.Println("All the information has been handled.")
@@ -36,7 +36,7 @@ func (handler PersonHandlerImpl) Batch(origs <-chan Person) <-chan Person {
 	return dests
 }
 
-func (handler PersonHandlerImpl) Handle(orig Person) {
+func (handler PersonHandlerImpl) Handle(orig *Person) {
 	if orig.Address.district == "Haidian" {
 		orig.Address.district = "Shijingshan"
 	}
