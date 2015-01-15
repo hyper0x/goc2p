@@ -127,11 +127,9 @@ func (sched *myScheduler) Start(
 	sched.dlpool = dlpool
 	analyzerPool, err := generateAnalyzerPool(sched.poolBaseArgs.AnalyzerPoolSize())
 	if err != nil {
-		if err != nil {
-			errMsg :=
-				fmt.Sprintf("Occur error when get analyzer pool: %s\n", err)
-			return errors.New(errMsg)
-		}
+		errMsg :=
+			fmt.Sprintf("Occur error when get analyzer pool: %s\n", err)
+		return errors.New(errMsg)
 	}
 	sched.analyzerPool = analyzerPool
 
