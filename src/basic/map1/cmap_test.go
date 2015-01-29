@@ -236,7 +236,7 @@ func BenchmarkConcurrentMap(b *testing.B) {
 	b.StopTimer()
 	mapType := fmt.Sprintf("ConcurrentMap<%s, %s>",
 		keyType.Kind().String(), elemType.Kind().String())
-	b.Logf("The length of % value is %d.\n", mapType, ml)
+	b.Logf("The length of %s value is %d.\n", mapType, ml)
 	b.StartTimer()
 }
 
