@@ -11,11 +11,11 @@ import (
 var logger logging.Logger = base.NewLogger()
 
 // ID生成器。
-var downloaderIdGenertor mdw.IdGenertor = mdw.NewIdGenertor()
+var downloaderIdGenerator mdw.IdGenerator = mdw.NewIdGenerator()
 
 // 生成并返回ID。
 func genDownloaderId() uint32 {
-	return downloaderIdGenertor.GetUint32()
+	return downloaderIdGenerator.GetUint32()
 }
 
 // 网页下载器的接口类型。

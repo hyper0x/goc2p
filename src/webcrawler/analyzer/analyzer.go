@@ -13,11 +13,11 @@ import (
 var logger logging.Logger = base.NewLogger()
 
 // ID生成器。
-var analyzerIdGenertor mdw.IdGenertor = mdw.NewIdGenertor()
+var analyzerIdGenerator mdw.IdGenerator = mdw.NewIdGenerator()
 
 // 生成并返回ID。
 func genAnalyzerId() uint32 {
-	return analyzerIdGenertor.GetUint32()
+	return analyzerIdGenerator.GetUint32()
 }
 
 // 分析器的接口类型。
