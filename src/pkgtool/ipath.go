@@ -35,9 +35,9 @@ func getImportsFromGoSource(filePath string) ([]string, error) {
 			return importPaths, nil
 		}
 		// Ignore command source
-		if strings.HasPrefix(line, "package") && strings.Split(line, " ")[1] == "main" {
-			return importPaths, nil
-		}
+		// if strings.HasPrefix(line, "package") && strings.Split(line, " ")[1] == "main" {
+		// 	return importPaths, nil
+		// }
 		if strings.HasPrefix(line, "import") {
 			if strings.Contains(line, "(") {
 				isMultiImport = true
