@@ -28,8 +28,8 @@ func (comm *TcpComm) BuildReq() loadgenlib.RawReq {
 	sreq := ServerReq{
 		Id: id,
 		Operands: []int{
-			int(rand.Int31n(1000)),
-			int(rand.Int31n(1000))},
+			int(rand.Int31n(1000) + 1),
+			int(rand.Int31n(1000) + 1)},
 		Operator: func() string {
 			op := []string{"+", "-", "*", "/"}
 			return op[rand.Int31n(100)%4]
