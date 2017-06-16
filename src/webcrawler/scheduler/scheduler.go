@@ -99,7 +99,6 @@ func (sched *myScheduler) Start(
 	if atomic.LoadUint32(&sched.running) == 1 {
 		return errors.New("The scheduler has been started!\n")
 	}
-	atomic.StoreUint32(&sched.running, 1)
 
 	if err := channelArgs.Check(); err != nil {
 		return err
@@ -168,6 +167,8 @@ func (sched *myScheduler) Start(
 
 	firstReq := base.NewRequest(firstHttpReq, 0)
 	sched.reqCache.put(firstReq)
+
+	atomic.StoreUint32(&sched.running, 1)
 
 	return nil
 }
