@@ -69,7 +69,7 @@ func makeWorkDir() {
 	}
 	if f == nil {
 		fmt.Printf("Make temp work dir '%s'...\n", absTempWorkDir)
-		err = os.Mkdir(absTempWorkDir, os.ModeDir | os.ModePerm)
+		err = os.Mkdir(absTempWorkDir, os.ModeDir|os.ModePerm)
 		if err != nil {
 			panic(err)
 		}
