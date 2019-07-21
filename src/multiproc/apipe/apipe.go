@@ -33,13 +33,14 @@ func demo2() {
 		fmt.Printf("Error: Can not obtain the stdin pipe for command: %s\n", err)
 		return
 	}
-	outputBuf1.WriteTo(stdin2)
+
 	var outputBuf2 bytes.Buffer
 	cmd2.Stdout = &outputBuf2
 	if err := cmd2.Start(); err != nil {
 		fmt.Printf("Error: The command can not be startup: %s\n", err)
 		return
 	}
+	outputBuf1.WriteTo(stdin2)
 	err = stdin2.Close()
 	if err != nil {
 		fmt.Printf("Error: Can not close the stdio pipe: %s\n", err)
