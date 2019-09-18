@@ -60,7 +60,7 @@ func main() {
 	handler := getPersonHandler()
 	origs := make(chan Person, 100)
 	dests := handler.Batch(origs)
-	fecthPerson(origs)
+	fetchPerson(origs)
 	sign := savePerson(dests)
 	<-sign
 }
@@ -85,14 +85,14 @@ func savePerson(dest <-chan Person) <-chan byte {
 	return sign
 }
 
-func fecthPerson(origs chan<- Person) {
+func fetchPerson(origs chan<- Person) {
 	origsCap := cap(origs)
 	buffered := origsCap > 0
 	goTicketTotal := origsCap / 2
 	goTicket := initGoTicket(goTicketTotal)
 	go func() {
 		for {
-			p, ok := fecthPerson1()
+			p, ok := fetchPerson1()
 			if !ok {
 				for {
 					if !buffered || len(goTicket) == goTicketTotal {
@@ -129,7 +129,7 @@ func initGoTicket(total int) chan byte {
 	return goTicket
 }
 
-func fecthPerson1() (Person, bool) {
+func fetchPerson1() (Person, bool) {
 	if personCount < personTotal {
 		p := persons[personCount]
 		personCount++
