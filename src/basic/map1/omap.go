@@ -55,8 +55,8 @@ func (omap *myOrderedMap) Put(key interface{}, elem interface{}) (interface{}, b
 
 func (omap *myOrderedMap) Remove(key interface{}) interface{} {
 	oldElem, ok := omap.m[key]
-	delete(omap.m, key)
 	if ok {
+		delete(omap.m, key)
 		omap.keys.Remove(key)
 	}
 	return oldElem
